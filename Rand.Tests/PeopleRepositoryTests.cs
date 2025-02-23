@@ -61,9 +61,13 @@ public class PeopleRepositoryTests
             Assert.AreEqual(id, person.Id, "The returned person's Id should match the requested Id.");
         }
 
-
-
-
+     [TestMethod]
+        public void TestGetPersonById_InvalidId_ReturnsNull()
+        {
+            int id = 1000001; // Out of range, since we only have 1,000,000 people.
+            var person = repository.GetPersonById(id);
+            Assert.IsNull(person, "A person with an invalid Id should return null.");
+        }
 
 
 

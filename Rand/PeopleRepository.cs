@@ -54,6 +54,18 @@ public class PeopleRepository
         {
             return data.FirstOrDefault(person => person.Id == id);
         }
-
+     /// <summary>
+        /// Helper method to generate a random birthday between the years 1950 and 2010.
+        /// </summary>
+        /// <returns>A DateTime representing a random birthday.</returns>
+        private DateTime GenerateRandomBirthday()
+        {
+            Random rand = new Random();
+            int year = rand.Next(1950, 2011); // 1950 to 2010 inclusive
+            int month = rand.Next(1, 13);       // Months 1 to 12
+            int day = rand.Next(1, 28);         // Days 1 to 27 (simpler to avoid invalid dates)
+            return new DateTime(year, month, day);
+        }
+    
 
     }
