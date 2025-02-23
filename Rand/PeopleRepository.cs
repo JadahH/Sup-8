@@ -45,5 +45,15 @@ public class PeopleRepository
             return data.Where(person => person.Name.Equals(name, StringComparison.Ordinal));
         }
 
+        /// <summary>
+        /// Returns the person with the specified Id if they exist; otherwise, returns null.
+        /// </summary>
+        /// <param name="id">The unique identifier of the Person.</param>
+        /// <returns>A Person object matching the Id, or null if not found.</returns>
+        public Person GetPersonById(int id)
+        {
+            return data.FirstOrDefault(person => person.Id == id);
+        }
+
 
     }
