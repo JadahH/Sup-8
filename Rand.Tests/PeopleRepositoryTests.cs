@@ -30,6 +30,15 @@ public class PeopleRepositoryTests
         }
 
 
+        // --- Test for GetPeopleBornAfter ---
+        [TestMethod]
+        public void TestGetPeopleBornAfter_ReturnsOnlyValidEntries()
+        {
+            DateTime testDate = new DateTime(2000, 1, 1);
+            var people = repository.GetPeopleBornAfter(testDate);
+            Assert.IsTrue(people.All(p => p.Birthday > testDate), "All returned birthdays should be after January 1, 2000.");
+        }
+
 
 
 
