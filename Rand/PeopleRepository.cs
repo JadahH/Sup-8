@@ -35,4 +35,15 @@ public class PeopleRepository
             return data.Where(person => person.Birthday > date);
         }
 
+        /// <summary>
+        /// Returns all people with the specified name.
+        /// </summary>
+        /// <param name="name">The name to search for.</param>
+        /// <returns>An IEnumerable of Person objects whose Name matches exactly.</returns>
+        public IEnumerable<Person> GetPeopleByName(string name)
+        {
+            return data.Where(person => person.Name.Equals(name, StringComparison.Ordinal));
+        }
+
+
     }
