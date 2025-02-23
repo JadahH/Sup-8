@@ -51,6 +51,15 @@ public class PeopleRepositoryTests
         }
 
 
+        // --- Test for GetPersonById ---
+        [TestMethod]
+        public void TestGetPersonById_ValidId_ReturnsPerson()
+        {
+            int id = 500000;
+            var person = repository.GetPersonById(id);
+            Assert.IsNotNull(person, "Person with a valid Id should not be null.");
+            Assert.AreEqual(id, person.Id, "The returned person's Id should match the requested Id.");
+        }
 
 
 
