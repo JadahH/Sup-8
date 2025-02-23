@@ -24,4 +24,15 @@ public class PeopleRepository
                 }).ToArray();
         }
 
+
+        /// <summary>
+        /// Returns all people born after the specified date.
+        /// </summary>
+        /// <param name="date">The date to compare against.</param>
+        /// <returns>An IEnumerable of Person objects born after the given date.</returns>
+        public IEnumerable<Person> GetPeopleBornAfter(DateTime date)
+        {
+            return data.Where(person => person.Birthday > date);
+        }
+
     }
