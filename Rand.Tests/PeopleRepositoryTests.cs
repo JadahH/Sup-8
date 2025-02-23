@@ -40,6 +40,16 @@ public class PeopleRepositoryTests
         }
 
 
+        // --- Test for GetPeopleByName ---
+        [TestMethod]
+        public void TestGetPeopleByName_ReturnsCorrectPerson()
+        {
+            // Since names are generated as "Person{Id}", test with a known name.
+            string name = "Person500000";
+            var people = repository.GetPeopleByName(name);
+            Assert.IsTrue(people.All(p => p.Name == name), "Returned people should all have the name Person500000.");
+        }
+
 
 
 
